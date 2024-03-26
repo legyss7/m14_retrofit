@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.annotation.RequiresApi
+import com.bumptech.glide.Glide
 
-import coil.load
 
 import com.hw14.databinding.FragmentMainBinding
 
@@ -39,7 +39,11 @@ class MainFragment : Fragment() {
         viewModel.userData.observe(viewLifecycleOwner) { userData ->
             userData?.let {
                 val data = it.results.first()
-                binding.img.load(data.picture.medium)
+                binding.img.apply {
+                    Glide.with(this)
+                        .load(data.picture.large)
+                        .into(this)
+                }
                 binding.firstName.text = data.name.first
                 binding.lastName.text = data.name.last
                 binding.phone.text = data.phone

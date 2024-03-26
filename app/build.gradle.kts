@@ -54,7 +54,7 @@ dependencies {
     implementation(libs.moshi)
 
     //Gson
-    implementation(libs.gson)
+//    implementation(libs.gson)
 
 
     implementation(libs.androidx.legacy.support.v4)
@@ -67,7 +67,13 @@ dependencies {
     ksp(libs.moshi.kotlin.codegen)
 
     //coil
-    implementation("io.coil-kt:coil:2.6.0")
+//    implementation(libs.coil)
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    // Skip this if you don't want to use integration libraries or configure Glide.
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
+
+
 
 
     testImplementation(libs.junit)
